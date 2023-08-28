@@ -1,0 +1,25 @@
+let user = window.prompt('adınızı giriniz: ');
+const userName = document.querySelector('#myName');
+const clock = document.querySelector('#myClock');
+
+function promptName() {
+    if(user != null) {
+     userName.innerHTML = user
+    }
+};
+promptName();
+
+function showTime() {
+    const today = new Date()
+    const dayList = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar']
+    const dayOfWeek = dayList[today.getDay()];
+    const hours = today.getHours();
+    const minutes = today.getMinutes();
+    const seconds = today.getSeconds();
+
+    const formattedTime = `${hours}:${minutes}:${seconds} ${dayOfWeek}`;
+
+    clock.innerHTML = formattedTime
+}
+showTime();
+setInterval(showTime, 1000); 
